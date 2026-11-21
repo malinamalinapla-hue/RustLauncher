@@ -1,0 +1,19 @@
+name: Build APK
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container: notfl3/cargo-apk
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build
+        run: cargo quad-apk build --release
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: voxel-game-apk
+          path: target/android-artifacts/release/apk/*.apk
