@@ -1,0 +1,16 @@
+[package]
+name = "voxel-game"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+macroquad = "0.4"
+
+# Для сборки APK через cargo-quad-apk
+[package.metadata.android]
+package_name = "rs.example.voxelgame"
+label = "Voxel Game"
+build_targets = ["aarch64-linux-android"]
+
+[[package.metadata.android.permission]]
+name = "android.permission.INTERNET"
